@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-1200px);
+  }
+}
+
+@layer base {
+  :root {
+    --font-size: 16px;
+    --background: #ebfeb4;
+    --foreground: #211d1d;
+    --card: #ffffff;
+    --card-foreground: #211d1d;
+    --popover: #ffffff;
+    --popover-foreground: #211d1d;
+    --primary: #211d1d;
+    --primary-foreground: #ebfeb4;
+    --secondary: #f0f9e8;
+    --secondary-foreground: #211d1d;
+    --muted: #e8f5d0;
+    --muted-foreground: #65774a;
+    --accent: #d4ed9f;
+    --accent-foreground: #211d1d;
+    --destructive: #d4183d;
+    --destructive-foreground: #ffffff;
+    --border: rgba(33, 29, 29, 0.1);
+    --input: transparent;
+    --input-background: #f0f9e8;
+    --switch-background: #d4ed9f;
+    --font-weight-medium: 500;
+    --font-weight-normal: 400;
+    --ring: oklch(0.708 0 0);
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.145 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.145 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.985 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.396 0.141 25.723);
+    --destructive-foreground: oklch(0.637 0.237 25.331);
+    --border: oklch(0.269 0 0);
+    --input: oklch(0.269 0 0);
+    --ring: oklch(0.439 0 0);
+    --font-weight-medium: 500;
+    --font-weight-normal: 400;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.input-background {
+  background-color: var(--input-background);
+}
+
+/* Typography matching UserInterface */
+html {
+  font-size: var(--font-size);
+}
+
+/* Enhanced color scheme matching UserInterface */
+.bg-primary {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.border-primary {
+  border-color: var(--primary) !important;
+}
+
+.hover\:bg-primary\/90:hover {
+  background-color: var(--primary) !important;
+  opacity: 0.9;
+  color: var(--primary-foreground) !important;
+}
+
+/* Button specific fixes */
+button.bg-primary {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+}
+
+button.bg-primary:hover {
+  background-color: var(--primary) !important;
+  opacity: 0.9;
+  color: var(--primary-foreground) !important;
+}
+
+/* Ensure proper contrast */
+.text-foreground {
+  color: var(--foreground) !important;
+}
+
+.text-muted-foreground {
+  color: var(--muted-foreground) !important;
+}
+
+.bg-background {
+  background-color: var(--background) !important;
+}
+
+.bg-card {
+  background-color: var(--card) !important;
+}
+
+.border-border {
+  border-color: var(--border) !important;
+}
+
+/* Typography styles matching UserInterface */
+h1 {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+h3 {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+button {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+}
+
+input {
+  font-size: 1rem;
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+}
+
+/* Additional button fixes for better contrast */
+.btn-primary {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  border: 1px solid var(--primary) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary) !important;
+  opacity: 0.9;
+  color: var(--primary-foreground) !important;
+}
+
+/* Ensure all primary buttons have proper contrast */
+[class*="bg-primary"] {
+  color: var(--primary-foreground) !important;
+}
+
+[class*="bg-primary"]:hover {
+  color: var(--primary-foreground) !important;
+}
