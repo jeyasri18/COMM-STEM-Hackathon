@@ -3,21 +3,28 @@ import { Card, CardContent, CardHeader } from './ui/card';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { Avatar, AvatarFallback } from './ui/avatar';
+import { MessageButton } from './MessageButton';
+import RatingDisplay from './RatingDisplay';
+import RatingForm from './RatingForm';
+import { RentalModal } from './RentalModal';
+import { useClothingRatings, useUserRatings } from '../hooks/useRatings';
 import { supabase, getCurrentUser } from '../lib/supabase';
 import { api } from '../lib/api';
 
-export function PublicDashboard() {
+export function PublicDashboard({ onMessageClick }) {
   const [clothing, setClothing] = useState([]);
   const [profiles, setProfiles] = useState({});
   const [loading, setLoading] = useState(true);
-  const [rentingId, setRentingId] = useState(null);
-  const [renterEmail, setRenterEmail] = useState('');
   const [rentStatus, setRentStatus] = useState('');
   const [user, setUser] = useState(null);
+  const [rentalModalOpen, setRentalModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
   const [connections, setConnections] = useState([]);
   const [pendingRequests, setPendingRequests] = useState([]);
   const [backendListings, setBackendListings] = useState([]);
   const [backendUser, setBackendUser] = useState(null);
+  const [showRatingForm, setShowRatingForm] = useState(null);
+  const [ratingFormType, setRatingFormType] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -99,23 +106,21 @@ export function PublicDashboard() {
   // Get unique user_ids
   const userIds = Object.keys(clothingByUser);
 
-  const handleRent = async (clothingId) => {
-    setRentStatus('');
-    if (!renterEmail) {
-      setRentStatus('Please enter your email.');
+  const handleRent = async (item) => {
+    if (!user) {
+      alert('Please sign in to rent items');
       return;
     }
-    // Insert rental record
-    const { error } = await supabase
-      .from('rentals')
-      .insert({ clothing_id: clothingId, renter_email: renterEmail });
-    if (error) {
-      setRentStatus('Error: ' + error.message);
-    } else {
-      setRentStatus('Rental request sent!');
-      setRentingId(null);
-      setRenterEmail('');
-    }
+
+    setSelectedItem(item);
+    setRentalModalOpen(true);
+  };
+
+  const handleRentalRequested = (rentalData) => {
+    console.log('Rental request created:', rentalData);
+    // You can add additional logic here, like updating the UI
+    setRentalModalOpen(false);
+    setSelectedItem(null);
   };
 
   const handleConnect = async (otherUserId) => {
@@ -124,6 +129,202 @@ export function PublicDashboard() {
       .from('connections')
       .upsert({ user_id: user.id, connected_user_id: otherUserId, status: 'pending' });
     setPendingRequests(prev => [...prev, otherUserId]);
+  };
+
+  const handleRateItem = (itemId, itemTitle) => {
+    if (!user) {
+      alert('Please sign in to rate items');
+      return;
+    }
+    setShowRatingForm(itemId);
+    setRatingFormType('clothing');
+  };
+
+  const handleRateUser = (userId, userName) => {
+    if (!user) {
+      alert('Please sign in to rate users');
+      return;
+    }
+    setShowRatingForm(userId);
+    setRatingFormType('user');
+  };
+
+  const handleRatingSuccess = () => {
+    // Refresh the page to show updated ratings
+    window.location.reload();
+  };
+
+  // Component for user profile section with ratings
+  const UserProfileSection = ({ 
+    userId, 
+    displayName, 
+    isSelf, 
+    isConnected, 
+    isPending, 
+    clothingItems, 
+    onConnect, 
+    onRateUser, 
+    onRateItem,
+    handleRent,
+    onMessageClick,
+    currentUserId
+  }) => {
+    const { stats: userStats } = useUserRatings(userId);
+    
+    return (
+      <div className="mb-8">
+        <div className="flex items-center gap-4 mb-6">
+          <Avatar className="h-12 w-12">
+            <AvatarFallback className="bg-primary/10 text-primary font-semibold">
+              {displayName.charAt(0).toUpperCase()}
+            </AvatarFallback>
+          </Avatar>
+          <div className="flex-1">
+            <h3 className="text-xl font-semibold text-foreground">{displayName}</h3>
+            <p className="text-muted-foreground text-sm">Community Member</p>
+            
+            {/* User Rating Display */}
+            <div className="mt-2 p-3 bg-gray-50 rounded-lg max-w-md">
+              <RatingDisplay
+                averageRating={userStats.average_rating}
+                totalRatings={userStats.total_ratings}
+                reliability={userStats.reliability}
+                communication={userStats.communication}
+                care={userStats.care}
+                showDetails={true}
+                size="sm"
+              />
+            </div>
+          </div>
+          
+          <div className="flex flex-col gap-2">
+            {!isSelf && !isConnected && !isPending && (
+              <Button 
+                size="sm" 
+                onClick={() => onConnect(userId)}
+                className="bg-green-600 hover:bg-green-700"
+              >
+                Connect
+              </Button>
+            )}
+            {!isSelf && isPending && (
+              <Badge variant="outline" className="text-orange-600 border-orange-600">
+                Request Sent
+              </Badge>
+            )}
+            {!isSelf && isConnected && (
+              <Badge variant="outline" className="text-green-600 border-green-600">
+                Connected
+              </Badge>
+            )}
+            {!isSelf && (
+              <Button 
+                size="sm" 
+                variant="outline"
+                onClick={() => onRateUser(userId, displayName)}
+                className="text-blue-600 border-blue-600 hover:bg-blue-50"
+              >
+                Rate User
+              </Button>
+            )}
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {clothingItems.map(item => (
+            <ClothingItemCard 
+              key={item.id}
+              item={item}
+              displayName={displayName}
+              userId={userId}
+              isSelf={isSelf}
+              isConnected={isConnected}
+              isPending={isPending}
+              handleRent={handleRent}
+              onMessageClick={onMessageClick}
+              currentUserId={currentUserId}
+              onRateItem={onRateItem}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  // Component for individual clothing item with ratings
+  const ClothingItemCard = ({ item, displayName, userId, isSelf, isConnected, isPending, handleRent, onMessageClick, currentUserId, onRateItem }) => {
+    const { stats: itemStats } = useClothingRatings(item?.id);
+    
+    return (
+      <Card key={item.id} className="group hover:shadow-lg transition-all duration-300">
+        <CardContent className="p-6">
+          {item.image_url && (
+            <div className="mb-4">
+              <img 
+                src={item.image_url} 
+                alt={item.title} 
+                className="w-full h-48 object-cover rounded-lg"
+              />
+            </div>
+          )}
+          <h4 className="font-semibold text-lg text-foreground mb-2">{item.title || 'Untitled Item'}</h4>
+          <p className="text-muted-foreground text-sm mb-3">{item.description || 'No description available'}</p>
+          
+          {/* Rating Display */}
+          <div className="mb-4 p-3 bg-gray-50 rounded-lg">
+            <RatingDisplay
+              averageRating={itemStats?.average_rating || 0}
+              totalRatings={itemStats?.total_ratings || 0}
+              quality={itemStats?.quality}
+              style={itemStats?.style}
+              condition={itemStats?.condition}
+              showDetails={true}
+              size="sm"
+            />
+          </div>
+          
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-lg font-semibold text-primary">
+              ${item.price_per_day || 0}/day
+            </span>
+            <Badge variant="secondary">Available</Badge>
+          </div>
+          
+          <div className="space-y-2">
+            <div className="space-y-2">
+              <div className="flex gap-2">
+                {!isSelf && (
+                  <Button 
+                    size="sm" 
+                    onClick={() => handleRent(item)}
+                    className="flex-1 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
+                  >
+                    Rent Item
+                  </Button>
+                )}
+                <MessageButton
+                  itemId={item.id}
+                  ownerId={userId}
+                  ownerName={displayName}
+                  currentUserId={user?.id}
+                  onMessageClick={onMessageClick}
+                />
+              </div>
+              {!isSelf && (
+                <Button 
+                  size="sm" 
+                  variant="outline"
+                  onClick={() => onRateItem(item.id, item.title)}
+                  className="w-full text-green-600 border-green-600 hover:bg-green-50"
+                >
+                  Rate This Item
+                </Button>
+              )}
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    );
   };
 
   if (loading) {
@@ -151,39 +352,74 @@ export function PublicDashboard() {
           AI-Powered Recommendations
         </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {backendListings.map((listing) => (
-              <Card key={listing.listing_id} className="group hover:shadow-lg transition-all duration-300 border-2 border-primary/20 hover:border-primary/40">
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between">
-                    <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors">
-                      {listing.title}
-                    </h3>
-                    <Badge variant="secondary" className="bg-primary/10 text-primary">
-                      {listing.privacy}
-                    </Badge>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {listing.description}
-                  </p>
-                  <div className="flex items-center gap-2 text-sm">
-                    <Avatar className="h-6 w-6">
-                      <AvatarFallback className="text-xs">
-                        {listing.owner_name?.charAt(0) || 'U'}
-                      </AvatarFallback>
-                    </Avatar>
-                    <span className="text-muted-foreground">Owner: {listing.owner_name}</span>
-                  </div>
-                  <Button 
-                    className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
-                    onClick={() => alert('This would integrate with the style matching system!')}
-                  >
-                    Get Style Match Score
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+            {backendListings.map((listing) => {
+              const BackendListingCard = () => {
+                const { stats: listingStats } = useClothingRatings(listing.listing_id);
+                
+                return (
+                  <Card key={listing.listing_id} className="group hover:shadow-lg transition-all duration-300 border-2 border-primary/20 hover:border-primary/40">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-start justify-between">
+                        <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors">
+                          {listing.title}
+                        </h3>
+                        <Badge variant="secondary" className="bg-primary/10 text-primary">
+                          {listing.privacy}
+                        </Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {listing.description}
+                      </p>
+                      
+                      {/* Rating Display */}
+                      <div className="p-3 bg-gray-50 rounded-lg">
+                        <RatingDisplay
+                          averageRating={listingStats.average_rating}
+                          totalRatings={listingStats.total_ratings}
+                          quality={listingStats.quality}
+                          style={listingStats.style}
+                          condition={listingStats.condition}
+                          showDetails={true}
+                          size="sm"
+                        />
+                      </div>
+                      
+                      <div className="flex items-center gap-2 text-sm">
+                        <Avatar className="h-6 w-6">
+                          <AvatarFallback className="text-xs">
+                            {listing.owner_name?.charAt(0) || 'U'}
+                          </AvatarFallback>
+                        </Avatar>
+                        <span className="text-muted-foreground">Owner: {listing.owner_name}</span>
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <Button 
+                          className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
+                          onClick={() => alert('This would integrate with the style matching system!')}
+                        >
+                          Get Style Match Score
+                        </Button>
+                        {backendUser && (
+                          <Button 
+                            size="sm" 
+                            variant="outline"
+                            onClick={() => handleRateItem(listing.listing_id, listing.title)}
+                            className="w-full text-green-600 border-green-600 hover:bg-green-50"
+                          >
+                            Rate This Item
+                          </Button>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              };
+              
+              return <BackendListingCard key={listing.listing_id} />;
+            })}
           </div>
         </div>
       )}
@@ -217,103 +453,21 @@ export function PublicDashboard() {
           const isPending = user && pendingRequests.includes(userId);
           
           return (
-            <div key={userId} className="mb-8">
-              <div className="flex items-center gap-4 mb-6">
-                <Avatar className="h-12 w-12">
-                  <AvatarFallback className="bg-primary/10 text-primary font-semibold">
-                    {displayName.charAt(0).toUpperCase()}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-foreground">{displayName}</h3>
-                  <p className="text-muted-foreground text-sm">Community Member</p>
-                </div>
-                {user && !isSelf && !isConnected && !isPending && (
-                  <Button 
-                    size="sm" 
-                    onClick={() => handleConnect(userId)}
-                    className="bg-green-600 hover:bg-green-700"
-                  >
-                    Connect
-                  </Button>
-                )}
-                {user && !isSelf && isPending && (
-                  <Badge variant="outline" className="text-orange-600 border-orange-600">
-                    Request Sent
-                  </Badge>
-                )}
-                {user && !isSelf && isConnected && (
-                  <Badge variant="outline" className="text-green-600 border-green-600">
-                    Connected
-                  </Badge>
-                )}
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {clothingByUser[userId].map(item => (
-                  <Card key={item.id} className="group hover:shadow-lg transition-all duration-300">
-                    <CardContent className="p-6">
-                      {item.image_url && (
-                        <div className="mb-4">
-                          <img 
-                            src={item.image_url} 
-                            alt={item.title} 
-                            className="w-full h-48 object-cover rounded-lg"
-                          />
-                        </div>
-                      )}
-                      <h4 className="font-semibold text-lg text-foreground mb-2">{item.title}</h4>
-                      <p className="text-muted-foreground text-sm mb-3">{item.description}</p>
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-lg font-semibold text-primary">
-                          ${item.price_per_day}/day
-                        </span>
-                        <Badge variant="secondary">Available</Badge>
-                      </div>
-                      
-                      <div className="space-y-2">
-                        {rentingId === item.id ? (
-                          <div className="space-y-2">
-                            <input
-                              type="email"
-                              placeholder="Your email"
-                              value={renterEmail}
-                              onChange={e => setRenterEmail(e.target.value)}
-                              className="w-full px-3 py-2 border border-input rounded-md text-sm"
-                            />
-                            <div className="flex gap-2">
-                              <Button 
-                                size="sm" 
-                                onClick={() => handleRent(item.id)}
-                                className="flex-1 bg-primary hover:bg-primary/90"
-                              >
-                                Confirm Rent
-                              </Button>
-                              <Button 
-                                size="sm" 
-                                variant="outline"
-                                onClick={() => { setRentingId(null); setRenterEmail(''); }}
-                                className="flex-1"
-                              >
-                                Cancel
-                              </Button>
-                            </div>
-                          </div>
-                        ) : (
-                          <Button 
-                            size="sm" 
-                            onClick={() => setRentingId(item.id)}
-                            className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
-                          >
-                            Rent Item
-                          </Button>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
+            <UserProfileSection 
+              key={userId}
+              userId={userId}
+              displayName={displayName}
+              isSelf={isSelf}
+              isConnected={isConnected}
+              isPending={isPending}
+              clothingItems={clothingByUser[userId]}
+              onConnect={handleConnect}
+              onRateUser={handleRateUser}
+              onRateItem={handleRateItem}
+              handleRent={handleRent}
+              onMessageClick={onMessageClick}
+              currentUserId={user?.id}
+            />
           );
         })}
       </div>
@@ -326,6 +480,35 @@ export function PublicDashboard() {
         }`}>
           {rentStatus}
         </div>
+      )}
+      
+      {/* Rating Form Modal */}
+      {showRatingForm && (
+        <RatingForm
+          type={ratingFormType}
+          itemId={showRatingForm}
+          userId={user?.id}
+          onClose={() => {
+            setShowRatingForm(null);
+            setRatingFormType(null);
+          }}
+          onSuccess={handleRatingSuccess}
+          itemTitle={ratingFormType === 'clothing' ? 'Item' : 'User'}
+          userName={ratingFormType === 'user' ? 'User' : undefined}
+        />
+      )}
+
+      {/* Rental Modal */}
+      {rentalModalOpen && selectedItem && (
+        <RentalModal
+          item={selectedItem}
+          user={user}
+          onClose={() => {
+            setRentalModalOpen(false);
+            setSelectedItem(null);
+          }}
+          onRentalRequested={handleRentalRequested}
+        />
       )}
     </div>
   );

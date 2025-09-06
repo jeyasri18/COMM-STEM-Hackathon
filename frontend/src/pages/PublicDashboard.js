@@ -6,7 +6,9 @@ const PublicDashboard = () => {
   const [profiles, setProfiles] = useState({});
   const [loading, setLoading] = useState(true);
   const [rentingId, setRentingId] = useState(null);
-  const [renterEmail, setRenterEmail] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [message, setMessage] = useState('');
   const [rentStatus, setRentStatus] = useState('');
   const [user, setUser] = useState(null);
   const [connections, setConnections] = useState([]);
@@ -61,22 +63,72 @@ const PublicDashboard = () => {
   // Get unique user_ids
   const userIds = Object.keys(clothingByUser);
 
+  // Helper function to convert UUID to integer (matching backend logic)
+  const uuidToInt = (uuid) => {
+    const uuidStr = uuid.replace(/-/g, '');
+    let hash = 0;
+    for (let i = 0; i < uuidStr.length; i++) {
+      const char = uuidStr.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Convert to 32-bit integer
+    }
+    return Math.abs(hash) % 1000000 + 1;
+  };
+
   const handleRent = async (clothingId) => {
     setRentStatus('');
-    if (!renterEmail) {
-      setRentStatus('Please enter your email.');
+    if (!startDate || !endDate) {
+      setRentStatus('Please select both start and end dates.');
       return;
     }
-    // Insert rental record
-    const { error } = await supabase
-      .from('rentals')
-      .insert({ clothing_id: clothingId, renter_email: renterEmail });
-    if (error) {
-      setRentStatus('Error: ' + error.message);
-    } else {
-      setRentStatus('Rental request sent!');
+
+    if (new Date(startDate) >= new Date(endDate)) {
+      setRentStatus('End date must be after start date.');
+      return;
+    }
+
+    if (!user) {
+      setRentStatus('Please log in to rent items.');
+      return;
+    }
+
+    try {
+      const rentalData = {
+        borrower_id: user.id,  // Send UUID string directly
+        listing_id: clothingId,  // Send UUID string directly
+        start_date: startDate,
+        end_date: endDate,
+        message: message
+      };
+
+      console.log('Submitting rental request:', rentalData);
+
+      const response = await fetch('http://localhost:8000/rentals/request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(rentalData)
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Rental request failed:', errorData);
+        throw new Error('Failed to submit rental request: ' + (errorData.detail || 'Unknown error'));
+      }
+
+      const result = await response.json();
+      console.log('Rental request successful:', result);
+
+      setRentStatus('Rental request sent successfully! The owner will be notified.');
       setRentingId(null);
-      setRenterEmail('');
+      setStartDate('');
+      setEndDate('');
+      setMessage('');
+
+    } catch (error) {
+      console.error('Error submitting rental request:', error);
+      setRentStatus('Failed to submit rental request. Please try again.');
     }
   };
 
@@ -124,14 +176,27 @@ const PublicDashboard = () => {
                     {rentingId === item.id ? (
                       <div>
                         <input
-                          type="email"
-                          placeholder="Your email"
-                          value={renterEmail}
-                          onChange={e => setRenterEmail(e.target.value)}
-                          style={{ marginBottom: 8, width: '100%' }}
+                          type="date"
+                          placeholder="Start date"
+                          value={startDate}
+                          onChange={e => setStartDate(e.target.value)}
+                          style={{ marginBottom: 8, width: '100%', padding: 4, border: '1px solid #ddd', borderRadius: 4 }}
+                        />
+                        <input
+                          type="date"
+                          placeholder="End date"
+                          value={endDate}
+                          onChange={e => setEndDate(e.target.value)}
+                          style={{ marginBottom: 8, width: '100%', padding: 4, border: '1px solid #ddd', borderRadius: 4 }}
+                        />
+                        <textarea
+                          placeholder="Message (optional)"
+                          value={message}
+                          onChange={e => setMessage(e.target.value)}
+                          style={{ marginBottom: 8, width: '100%', padding: 4, border: '1px solid #ddd', borderRadius: 4, minHeight: 60 }}
                         />
                         <button onClick={() => handleRent(item.id)} style={{ background: '#667eea', color: 'white', border: 'none', borderRadius: 6, padding: 6, width: '100%' }}>Confirm Rent</button>
-                        <button onClick={() => { setRentingId(null); setRenterEmail(''); }} style={{ background: 'none', color: '#dc3545', border: 'none', marginTop: 4, cursor: 'pointer' }}>Cancel</button>
+                        <button onClick={() => { setRentingId(null); setStartDate(''); setEndDate(''); setMessage(''); }} style={{ background: 'none', color: '#dc3545', border: 'none', marginTop: 4, cursor: 'pointer' }}>Cancel</button>
                       </div>
                     ) : (
                       <button onClick={() => setRentingId(item.id)} style={{ background: '#764ba2', color: 'white', border: 'none', borderRadius: 6, padding: 6, width: '100%' }}>Rent</button>

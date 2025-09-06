@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { AuthModal } from './AuthModal';
-import { Home, Search, Globe, Users, User, Plus, Heart } from 'lucide-react';
+import { Home, Search, Globe, Users, User, Plus, Heart, MessageCircle, Calendar } from 'lucide-react';
 
 export function Navigation({ activeSection, onSectionChange, user, onSignOut, onAuth }) {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const navItems = [
     { id: 'home', label: 'Home', icon: Home },
     { id: 'public', label: 'Public', icon: Globe },
+    { id: 'messages', label: 'Messages', icon: MessageCircle },
+    { id: 'rentals', label: 'Rentals', icon: Calendar },
+    { id: 'favorites', label: 'Favorites', icon: Heart },
+    { id: 'add', label: 'Add Item', icon: Plus },
     { id: 'community', label: 'Community', icon: Users },
     { id: 'profile', label: 'Profile', icon: User },
-    { id: 'add', label: 'Add Item', icon: Plus },
-    { id: 'favorites', label: 'Favorites', icon: Heart },
   ];
 
   return (

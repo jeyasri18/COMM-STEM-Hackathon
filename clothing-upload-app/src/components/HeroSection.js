@@ -7,9 +7,9 @@ export function HeroSection({ onGetStarted, onSignIn }) {
     <div className="min-h-screen bg-background relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 md:py-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <div className="mb-0">
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <div className="mb-8">
                 <div className="flex items-center gap-2 mb-0">
                   <img 
                     src="/logo.png" 
@@ -25,19 +25,19 @@ export function HeroSection({ onGetStarted, onSignIn }) {
               <div className="space-y-4 text-foreground/80">
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 rounded-full border-2 border-foreground flex items-center justify-center">
-                    <span className="text-xs">↻</span>
+                    <span className="text-xs">✓</span>
                   </div>
                   <p className="text-lg">Support your closet</p>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 rounded-full border-2 border-foreground flex items-center justify-center">
-                    <span className="text-xs">↻</span>
+                    <span className="text-xs">✓</span>
                   </div>
                   <p className="text-lg">Support your community</p>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-6 h-6 rounded-full border-2 border-foreground flex items-center justify-center">
-                    <span className="text-xs">↻</span>
+                    <span className="text-xs">✓</span>
                   </div>
                   <p className="text-lg">Support the environment</p>
                 </div>
@@ -57,10 +57,18 @@ export function HeroSection({ onGetStarted, onSignIn }) {
                 >
                   Start Exploring
                 </Button>
+                {onSignIn && (
+                  <Button 
+                    onClick={onSignIn}
+                    variant="outline" 
+                    className="border-foreground text-foreground hover:bg-foreground hover:text-background px-8 py-3 text-lg"
+                  >
+                    Sign In
+                  </Button>
+                )}
                 <Button 
                   variant="outline" 
                   className="border-foreground text-foreground hover:bg-foreground hover:text-background px-8 py-3 text-lg"
-                  onClick={onSignIn || (() => console.log('Sign in clicked'))}
                 >
                   Learn More
                 </Button>
@@ -69,13 +77,7 @@ export function HeroSection({ onGetStarted, onSignIn }) {
           </div>
           
           <div className="relative">
-            {/* Vertical Carousel */}
-            <div className="rounded-3xl p-6">
-              <div className="mb-6">
-                <h2 className="text-3xl font-bold text-foreground mb-2">Something new for you</h2>
-                <p className="text-muted-foreground">Discover amazing pieces from your community</p>
-              </div>
-              
+            <div className="relative rounded-3xl overflow-hidden">
               <VerticalCarousel />
             </div>
             

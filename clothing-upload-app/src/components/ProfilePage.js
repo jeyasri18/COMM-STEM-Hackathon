@@ -5,6 +5,9 @@ import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { Badge } from './ui/badge';
 import { Avatar, AvatarFallback } from './ui/avatar';
+import RatingDisplay from './RatingDisplay';
+import { useUserRatings, useClothingRatings } from '../hooks/useRatings';
+import { useUserRentals, useUserLentItems } from '../hooks/useUserItems';
 import { supabase, getCurrentUser } from '../lib/supabase';
 
 export function ProfilePage({ onSignOut }) {
@@ -16,6 +19,13 @@ export function ProfilePage({ onSignOut }) {
   const [nameInput, setNameInput] = useState('');
   const [nameStatus, setNameStatus] = useState('');
   const [incomingRequests, setIncomingRequests] = useState([]);
+  
+  // Get user ratings
+  const { stats: userStats, loading: ratingsLoading } = useUserRatings(user?.id);
+  
+  // Get rented and lent items
+  const { rentals, loading: rentalsLoading } = useUserRentals(user?.id);
+  const { lentItems, loading: lentItemsLoading } = useUserLentItems(user?.id);
 
   useEffect(() => {
     async function fetchUserAndClothing() {
@@ -32,7 +42,7 @@ export function ProfilePage({ onSignOut }) {
         setNameInput(profile?.display_name || '');
         
         // Fetch clothing
-        const { data, error } = await supabase
+        const { data } = await supabase
           .from('clothing')
           .select('*')
           .eq('user_id', userObj.id)
@@ -92,6 +102,51 @@ export function ProfilePage({ onSignOut }) {
       .eq('user_id', requestUserId)
       .eq('connected_user_id', user.id);
     setIncomingRequests(prev => prev.filter(r => r.user_id !== requestUserId));
+  };
+
+  // Component for individual clothing item with ratings
+  const ClothingItemCard = ({ item }) => {
+    const { stats: itemStats } = useClothingRatings(item?.id);
+    
+    return (
+      <Card key={item.id} className="group hover:shadow-lg transition-all duration-300">
+        <CardContent className="p-6">
+          {item.image_url && (
+            <div className="mb-4">
+              <img 
+                src={item.image_url} 
+                alt={item.title} 
+                className="w-full h-48 object-cover rounded-lg"
+              />
+            </div>
+          )}
+          <h3 className="font-semibold text-lg text-foreground mb-2">{item.title}</h3>
+          <p className="text-muted-foreground text-sm mb-3">{item.description}</p>
+          
+          {/* Rating Display */}
+          <div className="mb-4 p-3 bg-gray-50 rounded-lg">
+            <RatingDisplay
+              averageRating={itemStats?.average_rating || 0}
+              totalRatings={itemStats?.total_ratings || 0}
+              quality={itemStats?.quality}
+              style={itemStats?.style}
+              condition={itemStats?.condition}
+              showDetails={true}
+              size="sm"
+            />
+          </div>
+          
+          <div className="flex items-center justify-between">
+            <span className="text-lg font-semibold text-primary">
+              ${item.price_per_day}/day
+            </span>
+            <Badge variant={item.visibility === 'public' ? 'default' : 'secondary'}>
+              {item.visibility}
+            </Badge>
+          </div>
+        </CardContent>
+      </Card>
+    );
   };
 
   if (loading) {
@@ -184,6 +239,29 @@ export function ProfilePage({ onSignOut }) {
                 )}
               </div>
               
+              {/* User Rating Display */}
+              <div>
+                <Label className="text-sm font-medium text-muted-foreground">Community Rating</Label>
+                <div className="mt-2 p-4 bg-gray-50 rounded-lg">
+                  {ratingsLoading ? (
+                    <div className="flex items-center space-x-2">
+                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
+                      <span className="text-sm text-muted-foreground">Loading ratings...</span>
+                    </div>
+                  ) : (
+                    <RatingDisplay
+                      averageRating={userStats.average_rating}
+                      totalRatings={userStats.total_ratings}
+                      reliability={userStats.reliability}
+                      communication={userStats.communication}
+                      care={userStats.care}
+                      showDetails={true}
+                      size="md"
+                    />
+                  )}
+                </div>
+              </div>
+              
               <div className="pt-4 border-t">
                 <Button 
                   onClick={handleSignOut} 
@@ -265,29 +343,104 @@ export function ProfilePage({ onSignOut }) {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {clothing.map(item => (
-                    <Card key={item.id} className="group hover:shadow-lg transition-all duration-300">
-                      <CardContent className="p-6">
-                        {item.image_url && (
-                          <div className="mb-4">
-                            <img 
-                              src={item.image_url} 
-                              alt={item.title} 
-                              className="w-full h-48 object-cover rounded-lg"
-                            />
-                          </div>
-                        )}
-                        <h3 className="font-semibold text-lg text-foreground mb-2">{item.title}</h3>
-                        <p className="text-muted-foreground text-sm mb-3">{item.description}</p>
-                        <div className="flex items-center justify-between">
-                          <span className="text-lg font-semibold text-primary">
-                            ${item.price_per_day}/day
-                          </span>
-                          <Badge variant={item.visibility === 'public' ? 'default' : 'secondary'}>
-                            {item.visibility}
+                    <ClothingItemCard key={item.id} item={item} />
+                  ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+
+          {/* Rented Items */}
+          <Card>
+            <CardHeader>
+              <h2 className="text-xl font-semibold text-foreground flex items-center gap-2">
+                Items You're Renting
+                <Badge variant="secondary">{rentals.length}</Badge>
+              </h2>
+            </CardHeader>
+            <CardContent>
+              {rentalsLoading ? (
+                <div className="text-center py-8">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+                  <p className="text-muted-foreground mt-2">Loading rented items...</p>
+                </div>
+              ) : rentals.length === 0 ? (
+                <div className="text-center py-8">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-8 h-8 bg-primary rounded-full"></div>
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">No rented items yet</h3>
+                  <p className="text-muted-foreground">Start exploring and renting items from the community!</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {rentals.map(rental => (
+                    <div key={rental.rental_id} className="border rounded-lg p-4 space-y-3">
+                      <div className="flex justify-between items-start">
+                        <h3 className="font-semibold text-foreground">{rental.title}</h3>
+                        <Badge variant={rental.item_rated ? "default" : "secondary"}>
+                          {rental.item_rated ? "Rated" : "Not Rated"}
+                        </Badge>
+                      </div>
+                      <p className="text-sm text-muted-foreground">{rental.description}</p>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-muted-foreground">From: {rental.owner_name}</span>
+                        <span className="text-muted-foreground">
+                          Rented: {new Date(rental.rented_at).toLocaleDateString()}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+
+          {/* Lent Items */}
+          <Card>
+            <CardHeader>
+              <h2 className="text-xl font-semibold text-foreground flex items-center gap-2">
+                Items You've Lent
+                <Badge variant="secondary">{lentItems.length}</Badge>
+              </h2>
+            </CardHeader>
+            <CardContent>
+              {lentItemsLoading ? (
+                <div className="text-center py-8">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+                  <p className="text-muted-foreground mt-2">Loading lent items...</p>
+                </div>
+              ) : lentItems.length === 0 ? (
+                <div className="text-center py-8">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-8 h-8 bg-primary rounded-full"></div>
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">No lent items yet</h3>
+                  <p className="text-muted-foreground">Items you lend to others will appear here!</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {lentItems.map(lentItem => (
+                    <div key={lentItem.rental_id} className="border rounded-lg p-4 space-y-3">
+                      <div className="flex justify-between items-start">
+                        <h3 className="font-semibold text-foreground">{lentItem.title}</h3>
+                        <div className="flex gap-2">
+                          <Badge variant={lentItem.item_rated ? "default" : "secondary"}>
+                            {lentItem.item_rated ? "Item Rated" : "Item Not Rated"}
+                          </Badge>
+                          <Badge variant={lentItem.user_rated ? "default" : "outline"}>
+                            {lentItem.user_rated ? "User Rated" : "User Not Rated"}
                           </Badge>
                         </div>
-                      </CardContent>
-                    </Card>
+                      </div>
+                      <p className="text-sm text-muted-foreground">{lentItem.description}</p>
+                      <div className="flex justify-between items-center text-sm">
+                        <span className="text-muted-foreground">To: {lentItem.borrower_name}</span>
+                        <span className="text-muted-foreground">
+                          Lent: {new Date(lentItem.lent_at).toLocaleDateString()}
+                        </span>
+                      </div>
+                    </div>
                   ))}
                 </div>
               )}

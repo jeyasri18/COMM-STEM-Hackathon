@@ -1,0 +1,1341 @@
+INFO:     Started server process [76285]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+Creating rental for clothing item ec85fe69-cdf4-4155-a4e1-4f20820ce392 owned by a0641ada-2533-43ab-93a4-f2a037207761
+INFO:     127.0.0.1:61797 - "POST /rentals/request HTTP/1.1" 400 Bad Request
+Creating rental for clothing item ec85fe69-cdf4-4155-a4e1-4f20820ce392 owned by a0641ada-2533-43ab-93a4-f2a037207761
+INFO:     127.0.0.1:61802 - "POST /rentals/request HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61816 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61816 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:61816 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:61816 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61816 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:61816 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:61816 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61817 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61818 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61816 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61819 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61821 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61820 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61817 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61818 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61819 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61816 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61820 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61821 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61817 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61818 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61819 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61816 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61820 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61821 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61817 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61818 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61820 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61821 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61816 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61817 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61819 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61818 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61817 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61820 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61821 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61816 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61819 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61820 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61818 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61819 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61816 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61821 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61817 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61820 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61818 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61819 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61816 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61821 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61817 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61820 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61818 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61819 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61821 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61816 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61817 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61820 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61819 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61816 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61818 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61817 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61821 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61816 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61818 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61817 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61820 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61819 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61821 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61816 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61818 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61833 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61834 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61835 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61837 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61836 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61838 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61833 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61837 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61835 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61836 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61834 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61838 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61837 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61835 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61833 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61834 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61836 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61838 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61837 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61833 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61835 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61834 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61836 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61838 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61837 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61835 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61833 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61834 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61836 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61838 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61835 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61837 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61882 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61883 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61884 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61885 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61888 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61887 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61882 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61884 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61885 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61887 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61883 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61888 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61885 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61882 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61884 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61887 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61883 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61882 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61884 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61885 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61887 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61888 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61883 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61882 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61884 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61885 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61887 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61888 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61883 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61882 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61884 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61885 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61894 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61894 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:61894 - "OPTIONS /users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61894 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:61894 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61895 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61896 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61897 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61898 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61899 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61894 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61895 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61896 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61897 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61898 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61899 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61894 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61895 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61896 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61897 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61895 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61898 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61899 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61896 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61897 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61895 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61894 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61899 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61898 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61896 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61897 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61895 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61894 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61898 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61899 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61896 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61914 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61915 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61916 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61917 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61918 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61919 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61914 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61916 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61915 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61917 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61918 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61919 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61914 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61916 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61915 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61917 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61918 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61919 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61914 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61916 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61914 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61915 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61916 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61917 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61919 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61918 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61914 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61915 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61916 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61919 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61918 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61917 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61944 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61944 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:61944 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:61944 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61944 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:61944 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:61944 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61944 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61944 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61944 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61949 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61944 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61947 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61944 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61944 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61944 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61949 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61944 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61944 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61944 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61949 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61944 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61944 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61950 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61950 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61950 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61950 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61950 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61947 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61950 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61950 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61950 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61949 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61950 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61946 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61947 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61950 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61949 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61945 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61959 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61964 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61962 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61967 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61965 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61966 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61959 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61962 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61964 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61967 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61966 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61965 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61959 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61962 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61964 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61966 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61967 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61965 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61959 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61962 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61964 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61966 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61967 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61959 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61965 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61959 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61962 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61965 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61966 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61967 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61964 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61959 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61996 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61997 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61999 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62000 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61998 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61995 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61997 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61996 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62000 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61999 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61998 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61997 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61996 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62000 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61998 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61999 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61996 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62000 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61997 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61998 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61999 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61997 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61996 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62000 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61998 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61999 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61995 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61997 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61996 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62000 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61997 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61999 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61998 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61997 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61998 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61996 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62000 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61999 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61997 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61996 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62000 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61999 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61998 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61997 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61996 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62000 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61998 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61999 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61997 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62000 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61998 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61996 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61999 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61997 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61995 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62030 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62030 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62030 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62030 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62030 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62030 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62030 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62031 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62032 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62030 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62033 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62034 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62035 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62032 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62031 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62030 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62033 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62034 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62035 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62032 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62031 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62030 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62033 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62034 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62035 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62032 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62031 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62033 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62030 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62035 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62034 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62032 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62031 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62033 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62030 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62035 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62034 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62032 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62031 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62033 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62035 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62032 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62034 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62030 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62031 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62033 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62032 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62035 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62034 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62030 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62031 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62033 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62030 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62035 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62034 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62032 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62031 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62033 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62035 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62032 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62030 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62034 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62033 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62031 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62032 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62034 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62030 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62035 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62033 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62031 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62150 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62150 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62150 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62150 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62151 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62152 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62154 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62153 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62155 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62151 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62152 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62154 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62155 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62151 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62153 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62152 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62154 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62155 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62151 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62153 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62152 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62155 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62153 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62151 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62154 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62152 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62155 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62153 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62151 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62154 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62152 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62155 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62151 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62152 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62153 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62154 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62155 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62151 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62152 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62153 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62154 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62155 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62151 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62153 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62154 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62155 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62152 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62151 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62153 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62155 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62152 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62154 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62150 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62151 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62153 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62155 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62152 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62154 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62180 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62180 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62180 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62180 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62180 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62180 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62180 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62182 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62180 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62181 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62183 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62184 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62185 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62182 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62183 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62181 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62180 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62184 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62185 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62182 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62181 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62183 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62180 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62184 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62185 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62182 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62183 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62180 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62181 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62185 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62184 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62182 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62180 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62181 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62185 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62184 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62183 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62182 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62180 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62185 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62184 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62181 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62183 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62181 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62182 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62185 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62184 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62180 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62183 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62181 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62185 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62184 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62183 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62182 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62180 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62181 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62184 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62182 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62185 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62183 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62180 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62181 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62184 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62185 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62182 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62183 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62180 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62181 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62184 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62185 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62296 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62296 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62296 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62296 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62296 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62296 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62296 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62297 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62298 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62296 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62299 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62300 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62301 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62297 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62298 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62299 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62296 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62300 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62301 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62297 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62298 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62299 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62296 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62299 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62300 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62297 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62301 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62298 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62296 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62300 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62298 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62299 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62296 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62301 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62297 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62298 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62299 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62301 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62296 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62300 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62297 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62301 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62299 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62298 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62296 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62297 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62299 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62296 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62301 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62298 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62300 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62297 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62296 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62299 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62301 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62298 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62300 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62297 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62296 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62301 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62298 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62299 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62300 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62297 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62296 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62298 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62301 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62299 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62300 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62297 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62349 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62349 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62349 - "OPTIONS /users HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62349 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62349 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62349 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62349 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62349 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62350 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62349 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62351 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62352 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62353 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62354 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62350 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62349 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62354 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62352 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62353 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62351 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62350 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62352 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62353 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62354 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62349 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62350 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62351 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62352 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62349 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62350 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62351 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62354 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62353 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62352 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62351 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62349 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62354 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62350 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62353 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62352 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62351 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62349 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62354 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62350 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62353 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62354 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62352 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62349 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62351 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62350 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62353 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62354 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62349 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62352 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62351 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62350 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62353 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62354 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62349 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62351 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62350 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62352 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62353 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62349 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62350 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62352 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62351 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62354 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62353 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62349 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62350 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62428 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62428 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62428 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62429 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62428 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62428 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62428 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62429 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62432 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62428 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62430 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62431 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62429 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62433 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62432 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62428 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62430 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62431 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62429 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62433 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62432 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62430 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62428 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62433 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62431 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62429 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62428 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62430 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62433 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62431 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62432 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62429 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62428 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62430 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62431 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62432 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62433 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62429 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62428 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62430 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62431 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62432 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62433 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62429 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62428 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62430 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62431 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62432 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62433 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62429 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62428 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62430 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62431 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62432 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62433 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62429 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62428 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62430 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62431 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62433 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62432 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62428 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62429 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62430 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62431 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62429 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62428 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62432 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62433 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62430 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62463 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62464 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62466 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62465 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62467 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62468 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62463 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62464 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62466 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62465 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62467 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62468 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62464 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62463 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62466 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62465 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62463 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62465 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62464 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62467 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62466 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62468 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62463 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62464 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62465 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62466 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62468 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62467 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62463 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62463 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62463 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62463 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62463 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62464 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62465 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62467 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62468 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62466 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62463 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62464 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62467 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62465 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62468 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62466 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62463 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62464 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62465 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62468 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62463 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62466 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62464 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62467 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62468 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62465 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62463 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62466 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62464 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62463 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62464 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62465 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62466 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62463 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62468 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62467 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62495 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62495 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62495 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62495 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62495 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62495 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62495 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62497 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62498 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62495 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62499 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62500 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62497 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62498 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62495 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62500 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62499 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62497 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62498 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62495 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62500 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62499 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62497 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62498 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62495 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62500 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62499 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62497 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62498 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62498 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62495 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62500 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62499 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62497 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62498 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62495 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62499 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62500 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62497 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62498 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62499 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62495 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62500 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62498 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62497 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62500 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62499 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62495 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62498 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62497 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62499 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62495 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62500 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62498 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62497 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62495 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62500 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62496 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62499 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62498 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /rentals/owner/a0641ada-2533-43ab-93a4-f2a037207761/pending HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62512 - "GET /rentals/owner/a0641ada-2533-43ab-93a4-f2a037207761/pending HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62512 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62512 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62512 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62512 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62512 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62512 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62512 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62517 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62518 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62512 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62520 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62519 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62517 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62518 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62512 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62520 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62519 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62517 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62518 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62512 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62519 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62520 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62512 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62519 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62520 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62517 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62518 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62512 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62519 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62520 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62517 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62518 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62519 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62512 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62520 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62518 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62517 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62512 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62519 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62520 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62518 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62517 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62512 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62519 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62520 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62517 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62518 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62512 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62519 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62520 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62517 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62518 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62512 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62519 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62520 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62517 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62518 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62512 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62513 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62519 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62540 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62541 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62542 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62543 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62544 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62545 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62540 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62541 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62542 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62543 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62545 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62544 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62540 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62543 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62542 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62541 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62540 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62541 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62545 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62544 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62542 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62543 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62540 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62541 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62545 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62542 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62544 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62543 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62540 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62541 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62545 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62542 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62567 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62567 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62567 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62567 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62567 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62567 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62567 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62568 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62571 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62572 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62569 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62570 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62567 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62568 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62571 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62572 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62569 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62570 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62567 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62568 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62571 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62572 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62569 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62570 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62567 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62568 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62571 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62572 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62569 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62570 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62568 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62567 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62572 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62571 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62568 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62570 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62569 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62567 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62571 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62572 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62568 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62569 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62570 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62567 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62571 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62572 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62569 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62570 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62568 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62567 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62571 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62572 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62569 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62570 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62568 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62567 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62571 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62569 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62568 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62572 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62570 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62567 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62571 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62569 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62568 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62572 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62567 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62570 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62571 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62569 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62601 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62601 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62601 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62601 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62601 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62601 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62601 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62602 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62603 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62601 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62604 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62602 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62603 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62606 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62605 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62601 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62604 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62602 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62603 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62606 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62605 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62601 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62604 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62603 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62606 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62602 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62605 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62601 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62604 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62603 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62606 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62602 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62605 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62601 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62604 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62602 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62603 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62606 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62605 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62603 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62601 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62602 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62604 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62605 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62606 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62603 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62601 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62604 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62602 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62605 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62606 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62603 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62601 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62605 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62606 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62604 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62602 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62603 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62605 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62601 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62606 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62604 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62602 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62603 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62605 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62601 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62606 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62604 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62602 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62603 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62645 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62646 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62647 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62648 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62649 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62650 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62646 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62645 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62649 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62650 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62648 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62647 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62646 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62649 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62645 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62648 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62650 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62647 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62646 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62645 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62648 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62650 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62649 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62647 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62646 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62645 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62648 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62650 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62645 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62646 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62648 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62647 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62664 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62664 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62664 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62664 - "GET /listings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62664 - "GET /users/a0641ada-2533-43ab-93a4-f2a037207761 HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:62664 - "POST /users HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:62664 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62664 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62665 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62666 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62667 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62668 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62669 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62664 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62666 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62665 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62667 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62669 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62668 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62664 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62666 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62669 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62668 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62667 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62665 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62664 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62666 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62669 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62667 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62665 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62664 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62668 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62666 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62667 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62669 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62664 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62665 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62668 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62666 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62669 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62664 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62667 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62668 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62665 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62666 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62669 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62664 - "GET /ratings/clothing/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62667 - "GET /ratings/clothing/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62668 - "GET /ratings/clothing/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62665 - "GET /ratings/clothing/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62666 - "GET /ratings/clothing/234672 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62669 - "GET /ratings/user/3294 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62667 - "GET /ratings/user/680865 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62664 - "GET /ratings/clothing/724567 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62668 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62665 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62666 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62667 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62664 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62669 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62665 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62668 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62666 - "GET /ratings/clothing/1/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62669 - "GET /ratings/clothing/4/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62667 - "GET /ratings/clothing/2/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62665 - "GET /ratings/clothing/234672/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62664 - "GET /ratings/clothing/3/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62668 - "GET /ratings/user/3294/stats HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62669 - "GET /ratings/clothing/724567/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62666 - "GET /ratings/user/680865/stats HTTP/1.1" 200 OK

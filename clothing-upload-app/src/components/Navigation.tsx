@@ -1,19 +1,26 @@
-import { Heart, Search, User, Home, Users, Plus } from 'lucide-react';
+import { Heart, Search, User, Home, Users, Plus, LogOut, MessageCircle } from 'lucide-react';
 import { Button } from './ui/button';
 
 interface NavigationProps {
   activeSection: string;
   onSectionChange: (section: string) => void;
+  user?: any;
+  onSignOut?: () => void;
+  onAuth?: () => void;
+  onSignIn?: () => void;
 }
 
-export function Navigation({ activeSection, onSectionChange }: NavigationProps) {
-  const navItems = [
+export function Navigation({ activeSection, onSectionChange, user, onSignOut, onAuth, onSignIn }: NavigationProps) {
+  const navItems = user ? [
     { id: 'home', icon: Home, label: 'Home' },
-    { id: 'browse', icon: Search, label: 'Browse' },
-    { id: 'add', icon: Plus, label: 'Add Item' },
-    { id: 'communities', icon: Users, label: 'Communities' },
+    { id: 'public', icon: Search, label: 'Browse' },
+    { id: 'messages', icon: MessageCircle, label: 'Messages' },
     { id: 'favorites', icon: Heart, label: 'Favorites' },
+    { id: 'add', icon: Plus, label: 'Add Item' },
+    { id: 'community', icon: Users, label: 'Communities' },
     { id: 'profile', icon: User, label: 'Profile' },
+  ] : [
+    { id: 'home', icon: Home, label: 'Home' },
   ];
 
   return (
@@ -46,6 +53,29 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
                 <span className="hidden lg:inline">{label}</span>
               </Button>
             ))}
+            
+            {/* Auth buttons */}
+            {user ? (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={onSignOut}
+                className="flex items-center space-x-2 text-muted-foreground hover:text-foreground"
+              >
+                <LogOut className="w-4 h-4" />
+                <span className="hidden lg:inline">Sign Out</span>
+              </Button>
+            ) : (
+              <Button
+                variant="default"
+                size="sm"
+                onClick={onSignIn}
+                className="flex items-center space-x-2"
+              >
+                <User className="w-4 h-4" />
+                <span className="hidden lg:inline">Sign In</span>
+              </Button>
+            )}
           </div>
         </div>
       </nav>
@@ -68,6 +98,27 @@ export function Navigation({ activeSection, onSectionChange }: NavigationProps) 
               <Icon className="w-5 h-5" />
             </Button>
           ))}
+          
+          {/* Mobile Auth Button */}
+          {user ? (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onSignOut}
+              className="flex flex-col items-center space-y-1 p-3 text-muted-foreground"
+            >
+              <LogOut className="w-5 h-5" />
+            </Button>
+          ) : (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onSignIn}
+              className="flex flex-col items-center space-y-1 p-3 text-primary"
+            >
+              <User className="w-5 h-5" />
+            </Button>
+          )}
         </div>
       </nav>
     </>

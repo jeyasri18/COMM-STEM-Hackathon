@@ -33,7 +33,10 @@ export function AuthModal({ onAuth, onClose }) {
         if (error) throw error;
         
         if (data.user) {
-          alert('Check your email for the confirmation link!');
+          console.log('Account created! Check your email for the confirmation link.');
+          // Show a more user-friendly message
+          setError('Account created! Check your email for the confirmation link, then sign in.');
+          setTimeout(() => setError(''), 5000);
         }
       } else {
         const { data, error } = await supabase.auth.signInWithPassword({
@@ -44,6 +47,8 @@ export function AuthModal({ onAuth, onClose }) {
         if (error) throw error;
         
         if (data.user) {
+          // Show success message briefly before closing
+          console.log('Sign in successful!');
           onAuth();
           onClose();
         }
@@ -107,7 +112,9 @@ export function AuthModal({ onAuth, onClose }) {
             </div>
             
             {error && (
-              <div className="text-red-500 text-sm">{error}</div>
+              <div className={`text-sm ${error.includes('Account created') ? 'text-green-600' : 'text-red-500'}`}>
+                {error}
+              </div>
             )}
             
             <Button type="submit" className="w-full" disabled={loading}>

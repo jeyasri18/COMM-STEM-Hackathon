@@ -5,9 +5,10 @@ import logoImage from 'figma:asset/c3a652e8377a14e2c93b7834b9038a8110c17318.png'
 
 interface HeroSectionProps {
   onGetStarted: () => void;
+  onSignIn?: () => void;
 }
 
-export function HeroSection({ onGetStarted }: HeroSectionProps) {
+export function HeroSection({ onGetStarted, onSignIn }: HeroSectionProps) {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       
@@ -58,6 +59,15 @@ export function HeroSection({ onGetStarted }: HeroSectionProps) {
                 >
                   Start Exploring
                 </Button>
+                {onSignIn && (
+                  <Button 
+                    onClick={onSignIn}
+                    variant="outline" 
+                    className="border-foreground text-foreground hover:bg-foreground hover:text-background px-8 py-3 text-lg"
+                  >
+                    Sign In
+                  </Button>
+                )}
                 <Button 
                   variant="outline" 
                   className="border-foreground text-foreground hover:bg-foreground hover:text-background px-8 py-3 text-lg"
