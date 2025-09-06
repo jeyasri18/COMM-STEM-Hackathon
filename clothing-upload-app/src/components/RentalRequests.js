@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
+import React, { useState, useEffect, useCallback } from 'react';
+import { ConfirmedRentalModal } from './ConfirmedRentalModal';
 
 const API_BASE = 'http://localhost:8000';
 
@@ -7,14 +7,10 @@ export default function RentalRequests({ user }) {
   const [pendingRequests, setPendingRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [paymentModalOpen, setPaymentModalOpen] = useState(false);
+  const [selectedRental, setSelectedRental] = useState(null);
 
-  useEffect(() => {
-    if (user) {
-      fetchPendingRequests();
-    }
-  }, [user]);
-
-  const fetchPendingRequests = async () => {
+  const fetchPendingRequests = useCallback(async () => {
     try {
       setLoading(true);
       const response = await fetch(`${API_BASE}/rentals/owner/${user.id}/pending`);
@@ -31,7 +27,13 @@ export default function RentalRequests({ user }) {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user.id]);
+
+  useEffect(() => {
+    if (user) {
+      fetchPendingRequests();
+    }
+  }, [user, fetchPendingRequests]);
 
   const handleConfirmRental = async (rentalId, action) => {
     try {
@@ -56,6 +58,19 @@ export default function RentalRequests({ user }) {
       console.error(`Error ${action}ing rental:`, err);
       alert(`Failed to ${action} rental. Please try again.`);
     }
+  };
+
+  const handleCompletePayment = (rental) => {
+    setSelectedRental(rental);
+    setPaymentModalOpen(true);
+  };
+
+  const handlePaymentSuccess = (rental) => {
+    console.log('Payment successful for rental:', rental);
+    setPaymentModalOpen(false);
+    setSelectedRental(null);
+    // Refresh the requests to show updated status
+    fetchPendingRequests();
   };
 
   if (loading) {
@@ -107,23 +122,55 @@ export default function RentalRequests({ user }) {
                 </div>
                 
                 <div className="flex space-x-2 ml-4">
-                  <button
-                    onClick={() => handleConfirmRental(request.rental_id, 'confirm')}
-                    className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors"
-                  >
-                    Confirm
-                  </button>
-                  <button
-                    onClick={() => handleConfirmRental(request.rental_id, 'reject')}
-                    className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors"
-                  >
-                    Reject
-                  </button>
+                  {request.status === 'pending' ? (
+                    <>
+                      <button
+                        onClick={() => handleConfirmRental(request.rental_id, 'confirm')}
+                        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors"
+                      >
+                        Confirm
+                      </button>
+                      <button
+                        onClick={() => handleConfirmRental(request.rental_id, 'reject')}
+                        className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors"
+                      >
+                        Reject
+                      </button>
+                    </>
+                  ) : request.status === 'confirmed' ? (
+                    <button
+                      onClick={() => handleCompletePayment(request)}
+                      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
+                    >
+                      Complete Payment
+                    </button>
+                  ) : (
+                    <span className={`px-4 py-2 rounded text-sm ${
+                      request.status === 'completed' ? 'bg-green-100 text-green-800' :
+                      request.status === 'rejected' ? 'bg-red-100 text-red-800' :
+                      'bg-gray-100 text-gray-800'
+                    }`}>
+                      {request.status.charAt(0).toUpperCase() + request.status.slice(1)}
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
           ))}
         </div>
+      )}
+
+      {/* Payment Modal */}
+      {paymentModalOpen && selectedRental && (
+        <ConfirmedRentalModal
+          rental={selectedRental}
+          user={user}
+          onClose={() => {
+            setPaymentModalOpen(false);
+            setSelectedRental(null);
+          }}
+          onPaymentSuccess={handlePaymentSuccess}
+        />
       )}
     </div>
   );

@@ -1,0 +1,260 @@
+import React, { useState } from 'react';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { X, CreditCard, Lock } from 'lucide-react';
+
+const API_BASE = 'http://localhost:8000';
+
+export function PaymentModal({ item, user, onClose, onPaymentSuccess }) {
+  const [loading, setLoading] = useState(false);
+  const [paymentData, setPaymentData] = useState({
+    cardNumber: '',
+    expiryDate: '',
+    cvv: '',
+    cardholderName: '',
+    email: user?.email || ''
+  });
+  const [rentalData, setRentalData] = useState({
+    startDate: '',
+    endDate: '',
+    message: ''
+  });
+
+  const handleInputChange = (field, value) => {
+    if (field === 'cardNumber') {
+      // Format card number with spaces
+      const formatted = value.replace(/\s/g, '').replace(/(.{4})/g, '$1 ').trim();
+      if (formatted.length <= 19) { // 16 digits + 3 spaces
+        setPaymentData(prev => ({ ...prev, [field]: formatted }));
+      }
+    } else if (field === 'expiryDate') {
+      // Format expiry date as MM/YY
+      const formatted = value.replace(/\D/g, '').replace(/(\d{2})(\d{2})/, '$1/$2');
+      if (formatted.length <= 5) {
+        setPaymentData(prev => ({ ...prev, [field]: formatted }));
+      }
+    } else if (field === 'cvv') {
+      // Limit CVV to 3 digits
+      if (value.length <= 3) {
+        setPaymentData(prev => ({ ...prev, [field]: value }));
+      }
+    } else {
+      setPaymentData(prev => ({ ...prev, [field]: value }));
+    }
+  };
+
+  const handleRentalChange = (field, value) => {
+    setRentalData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const calculateTotal = () => {
+    if (!rentalData.startDate || !rentalData.endDate) return 0;
+    const start = new Date(rentalData.startDate);
+    const end = new Date(rentalData.endDate);
+    const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+    return days * (item?.price_per_day || 0);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      // Simulate payment processing
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      // Create rental request
+      const rentalRequest = {
+        item_id: item.id,
+        borrower_id: user.id,
+        start_date: rentalData.startDate,
+        end_date: rentalData.endDate,
+        message: rentalData.message,
+        total_amount: calculateTotal(),
+        payment_status: 'pending'
+      };
+
+      const response = await fetch(`${API_BASE}/rentals/request`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(rentalRequest)
+      });
+
+      if (response.ok) {
+        onPaymentSuccess(rentalRequest);
+        onClose();
+      } else {
+        throw new Error('Payment failed');
+      }
+    } catch (error) {
+      console.error('Payment error:', error);
+      alert('Payment failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const total = calculateTotal();
+
+  return (
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+      <Card className="w-full max-w-md max-h-[90vh] overflow-y-auto">
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
+          <CardTitle className="text-xl font-semibold">Complete Payment</CardTitle>
+          <Button variant="ghost" size="sm" onClick={onClose}>
+            <X className="h-4 w-4" />
+          </Button>
+        </CardHeader>
+        
+        <CardContent className="space-y-6">
+          {/* Item Summary */}
+          <div className="bg-gray-50 rounded-lg p-4">
+            <h3 className="font-medium text-lg">{item?.title}</h3>
+            <p className="text-gray-600">{item?.description}</p>
+            <p className="text-green-600 font-semibold">${item?.price_per_day}/day</p>
+          </div>
+
+          {/* Rental Dates */}
+          <div className="space-y-4">
+            <h4 className="font-medium">Rental Period</h4>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="text-sm font-medium text-gray-700">Start Date</label>
+                <Input
+                  type="date"
+                  value={rentalData.startDate}
+                  onChange={(e) => handleRentalChange('startDate', e.target.value)}
+                  className="mt-1"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium text-gray-700">End Date</label>
+                <Input
+                  type="date"
+                  value={rentalData.endDate}
+                  onChange={(e) => handleRentalChange('endDate', e.target.value)}
+                  className="mt-1"
+                />
+              </div>
+            </div>
+            {total > 0 && (
+              <div className="text-right">
+                <p className="text-sm text-gray-600">
+                  {Math.ceil((new Date(rentalData.endDate) - new Date(rentalData.startDate)) / (1000 * 60 * 60 * 24))} days × ${item?.price_per_day} = 
+                  <span className="font-semibold text-lg"> ${total}</span>
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Payment Form */}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <h4 className="font-medium">Payment Information</h4>
+            
+            <div>
+              <label className="text-sm font-medium text-gray-700">Cardholder Name</label>
+              <Input
+                value={paymentData.cardholderName}
+                onChange={(e) => handleInputChange('cardholderName', e.target.value)}
+                placeholder="John Doe"
+                required
+                className="mt-1"
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-gray-700">Card Number</label>
+              <Input
+                value={paymentData.cardNumber}
+                onChange={(e) => handleInputChange('cardNumber', e.target.value)}
+                placeholder="1234 5678 9012 3456"
+                required
+                className="mt-1"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="text-sm font-medium text-gray-700">Expiry Date</label>
+                <Input
+                  value={paymentData.expiryDate}
+                  onChange={(e) => handleInputChange('expiryDate', e.target.value)}
+                  placeholder="MM/YY"
+                  required
+                  className="mt-1"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium text-gray-700">CVV</label>
+                <Input
+                  value={paymentData.cvv}
+                  onChange={(e) => handleInputChange('cvv', e.target.value)}
+                  placeholder="123"
+                  required
+                  className="mt-1"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-gray-700">Email</label>
+              <Input
+                type="email"
+                value={paymentData.email}
+                onChange={(e) => handleInputChange('email', e.target.value)}
+                required
+                className="mt-1"
+              />
+            </div>
+
+            <div>
+              <label className="text-sm font-medium text-gray-700">Message (Optional)</label>
+              <textarea
+                value={rentalData.message}
+                onChange={(e) => handleRentalChange('message', e.target.value)}
+                placeholder="Any special requests or notes..."
+                className="w-full mt-1 p-3 border border-gray-300 rounded-md resize-none"
+                rows={3}
+              />
+            </div>
+
+            {/* Security Notice */}
+            <div className="flex items-center space-x-2 text-sm text-gray-600 bg-blue-50 p-3 rounded-md">
+              <Lock className="h-4 w-4" />
+              <span>Your payment information is secure and encrypted</span>
+            </div>
+
+            {/* Total and Submit */}
+            <div className="border-t pt-4">
+              <div className="flex justify-between items-center mb-4">
+                <span className="text-lg font-semibold">Total Amount:</span>
+                <span className="text-xl font-bold text-green-600">${total}</span>
+              </div>
+              
+              <Button 
+                type="submit" 
+                className="w-full bg-green-600 hover:bg-green-700 text-white"
+                disabled={loading || total === 0}
+              >
+                {loading ? (
+                  <div className="flex items-center space-x-2">
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+                    <span>Processing Payment...</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center space-x-2">
+                    <CreditCard className="h-4 w-4" />
+                    <span>Pay ${total}</span>
+                  </div>
+                )}
+              </Button>
+            </div>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}

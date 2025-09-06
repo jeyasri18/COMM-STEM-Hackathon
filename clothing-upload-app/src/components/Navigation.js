@@ -21,13 +21,12 @@ export function Navigation({ activeSection, onSectionChange, user, onSignOut, on
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-8">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center">
               <img 
                 src="/logo.png" 
                 alt="Re:Fit Logo" 
-                className="w-8 h-8 object-contain"
+                className="w-16 h-16 object-contain"
               />
-              <div className="text-xl font-bold text-primary">Re:Fit</div>
             </div>
             <div className="hidden md:flex items-center space-x-6">
               {navItems.map(({ id, icon: Icon, label }) => (
@@ -52,9 +51,6 @@ export function Navigation({ activeSection, onSectionChange, user, onSignOut, on
           <div className="flex items-center space-x-4">
             {user ? (
               <>
-                <span className="text-sm text-muted-foreground hidden sm:inline">
-                  Welcome, {user.user_metadata?.full_name || user.email}
-                </span>
                 <Button variant="outline" size="sm" onClick={onSignOut}>
                   Sign Out
                 </Button>

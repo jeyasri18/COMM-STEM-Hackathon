@@ -7,17 +7,20 @@ import { MessageButton } from './MessageButton';
 import RatingDisplay from './RatingDisplay';
 import RatingForm from './RatingForm';
 import { RentalModal } from './RentalModal';
+import { PaymentModal } from './PaymentModal';
 import { useClothingRatings, useUserRatings } from '../hooks/useRatings';
 import { supabase, getCurrentUser } from '../lib/supabase';
 import { api } from '../lib/api';
+import { Heart } from 'lucide-react';
 
-export function PublicDashboard({ onMessageClick }) {
+export function PublicDashboard({ onMessageClick, favorites, onToggleFavorite }) {
   const [clothing, setClothing] = useState([]);
   const [profiles, setProfiles] = useState({});
   const [loading, setLoading] = useState(true);
   const [rentStatus, setRentStatus] = useState('');
   const [user, setUser] = useState(null);
   const [rentalModalOpen, setRentalModalOpen] = useState(false);
+  const [paymentModalOpen, setPaymentModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [connections, setConnections] = useState([]);
   const [pendingRequests, setPendingRequests] = useState([]);
@@ -123,6 +126,19 @@ export function PublicDashboard({ onMessageClick }) {
     setSelectedItem(null);
   };
 
+  const handlePayment = (item) => {
+    setSelectedItem(item);
+    setPaymentModalOpen(true);
+  };
+
+  const handlePaymentSuccess = (paymentData) => {
+    console.log('Payment successful:', paymentData);
+    setPaymentModalOpen(false);
+    setSelectedItem(null);
+    setRentStatus('Payment successful! Rental request sent.');
+    setTimeout(() => setRentStatus(null), 5000);
+  };
+
   const handleConnect = async (otherUserId) => {
     if (!user) return;
     await supabase
@@ -167,7 +183,8 @@ export function PublicDashboard({ onMessageClick }) {
     onRateItem,
     handleRent,
     onMessageClick,
-    currentUserId
+    currentUserId,
+    onPayment
   }) => {
     const { stats: userStats } = useUserRatings(userId);
     
@@ -244,6 +261,8 @@ export function PublicDashboard({ onMessageClick }) {
               onMessageClick={onMessageClick}
               currentUserId={currentUserId}
               onRateItem={onRateItem}
+              onPayment={onPayment}
+              onToggleFavorite={onToggleFavorite}
             />
           ))}
         </div>
@@ -252,19 +271,33 @@ export function PublicDashboard({ onMessageClick }) {
   };
 
   // Component for individual clothing item with ratings
-  const ClothingItemCard = ({ item, displayName, userId, isSelf, isConnected, isPending, handleRent, onMessageClick, currentUserId, onRateItem }) => {
+  const ClothingItemCard = ({ item, displayName, userId, isSelf, isConnected, isPending, handleRent, onMessageClick, currentUserId, onRateItem, onPayment, onToggleFavorite }) => {
     const { stats: itemStats } = useClothingRatings(item?.id);
+    const isFavorited = favorites.has(item.id);
     
     return (
       <Card key={item.id} className="group hover:shadow-lg transition-all duration-300">
         <CardContent className="p-6">
           {item.image_url && (
-            <div className="mb-4">
+            <div className="mb-4 relative">
               <img 
                 src={item.image_url} 
                 alt={item.title} 
                 className="w-full h-48 object-cover rounded-lg"
               />
+              {/* Heart/Favorite Button */}
+              <button
+                onClick={() => onToggleFavorite(item.id)}
+                className="absolute top-2 right-2 p-2 bg-white/90 hover:bg-white rounded-full shadow-md transition-all duration-200 hover:scale-110"
+              >
+                <Heart 
+                  className={`w-5 h-5 ${
+                    isFavorited 
+                      ? 'text-red-500 fill-current' 
+                      : 'text-gray-400 hover:text-red-500'
+                  }`} 
+                />
+              </button>
             </div>
           )}
           <h4 className="font-semibold text-lg text-foreground mb-2">{item.title || 'Untitled Item'}</h4>
@@ -299,7 +332,7 @@ export function PublicDashboard({ onMessageClick }) {
                     onClick={() => handleRent(item)}
                     className="flex-1 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
                   >
-                    Rent Item
+                    Request Owner
                   </Button>
                 )}
                 <MessageButton
@@ -311,14 +344,23 @@ export function PublicDashboard({ onMessageClick }) {
                 />
               </div>
               {!isSelf && (
-                <Button 
-                  size="sm" 
-                  variant="outline"
-                  onClick={() => onRateItem(item.id, item.title)}
-                  className="w-full text-green-600 border-green-600 hover:bg-green-50"
-                >
-                  Rate This Item
-                </Button>
+                <div className="space-y-2">
+                  <Button 
+                    size="sm" 
+                    variant="outline"
+                    onClick={() => onRateItem(item.id, item.title)}
+                    className="w-full text-green-600 border-green-600 hover:bg-green-50"
+                  >
+                    Rate This Item
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    onClick={() => onPayment(item)}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                  >
+                    Payment
+                  </Button>
+                </div>
               )}
             </div>
           </div>
@@ -467,6 +509,7 @@ export function PublicDashboard({ onMessageClick }) {
               handleRent={handleRent}
               onMessageClick={onMessageClick}
               currentUserId={user?.id}
+              onPayment={handlePayment}
             />
           );
         })}
@@ -508,6 +551,19 @@ export function PublicDashboard({ onMessageClick }) {
             setSelectedItem(null);
           }}
           onRentalRequested={handleRentalRequested}
+        />
+      )}
+
+      {/* Payment Modal */}
+      {paymentModalOpen && selectedItem && (
+        <PaymentModal
+          item={selectedItem}
+          user={user}
+          onClose={() => {
+            setPaymentModalOpen(false);
+            setSelectedItem(null);
+          }}
+          onPaymentSuccess={handlePaymentSuccess}
         />
       )}
     </div>

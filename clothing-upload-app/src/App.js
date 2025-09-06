@@ -4,9 +4,7 @@ import { getCurrentUser, supabase } from './lib/supabase';
 
 // Import beautiful UI components
 import { HeroSection } from './components/HeroSection';
-import { ItemGrid } from './components/ItemGrid';
 import { AddItemSection } from './components/AddItemSection';
-import { ProfileSection } from './components/ProfileSection';
 import { Navigation } from './components/Navigation.js';
 import { PublicDashboard } from './components/PublicDashboard';
 import { CommunityDashboard } from './components/CommunityDashboard';
@@ -16,6 +14,7 @@ import { AuthRequiredMessage } from './components/AuthRequiredMessage';
 import { WelcomeMessage } from './components/WelcomeMessage';
 import { Messages } from './components/Messages.js';
 import RentalRequests from './components/RentalRequests.js';
+import { Favorites } from './components/Favorites.js';
 
 
 function App() {
@@ -24,6 +23,8 @@ function App() {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [loading, setLoading] = useState(true);
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
+  const [favorites, setFavorites] = useState(new Set());
+  const [favoriteMessage, setFavoriteMessage] = useState('');
   
   useEffect(() => {
     async function fetchUser() {
@@ -96,15 +97,30 @@ function App() {
     console.log('Starting conversation for item:', itemId, 'with owner:', ownerName);
   };
 
-  const handleProfileView = (profileId) => {
-    // This would navigate to the user's profile
-    console.log('View profile:', profileId);
-  };
-
   const handleItemAdded = () => {
     // This would refresh the listings
     console.log('Item added successfully');
     setActiveSection('browse');
+  };
+
+  const toggleFavorite = (itemId) => {
+    setFavorites(prev => {
+      const newFavorites = new Set(prev);
+      if (newFavorites.has(itemId)) {
+        newFavorites.delete(itemId);
+        setFavoriteMessage('Removed from favorites');
+        console.log('Removed from favorites:', itemId);
+      } else {
+        newFavorites.add(itemId);
+        setFavoriteMessage('Added to favorites!');
+        console.log('Added to favorites:', itemId);
+      }
+      
+      // Clear message after 2 seconds
+      setTimeout(() => setFavoriteMessage(''), 2000);
+      
+      return newFavorites;
+    });
   };
 
 
@@ -129,9 +145,15 @@ function App() {
 
     switch (activeSection) {
       case 'home':
-        return <HeroSection onGetStarted={handleGetStarted} onSignIn={handleSignInClick} />;
+        return <HeroSection onGetStarted={handleGetStarted} onSignIn={user ? null : handleSignInClick} />;
       case 'public':
-        return user ? <PublicDashboard onMessageClick={handleItemMessage} /> : <AuthRequiredMessage onSignIn={handleSignInClick} />;
+        return user ? (
+          <PublicDashboard 
+            onMessageClick={handleItemMessage} 
+            favorites={favorites}
+            onToggleFavorite={toggleFavorite}
+          />
+        ) : <AuthRequiredMessage onSignIn={handleSignInClick} />;
       case 'community':
         return user ? <CommunityDashboard /> : <AuthRequiredMessage onSignIn={handleSignInClick} />;
       case 'profile':
@@ -140,32 +162,17 @@ function App() {
         return user ? <AddItemSection onItemAdded={handleItemAdded} /> : <AuthRequiredMessage onSignIn={handleSignInClick} />;
       case 'favorites':
         return user ? (
-          <div className="max-w-4xl mx-auto px-6 py-8">
-            <div className="text-center py-12">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img 
-                  src="/logo.png" 
-                  alt="Re:Fit Logo" 
-                  className="w-8 h-8 object-contain"
-                />
-              </div>
-              <h1 className="text-2xl text-foreground mb-2">Your Favorites</h1>
-              <p className="text-muted-foreground mb-8">Items you've loved will appear here</p>
-              <button 
-                onClick={() => setActiveSection('public')}
-                className="bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
-              >
-                Discover Items
-              </button>
-            </div>
-          </div>
+          <Favorites 
+            favorites={favorites} 
+            onToggleFavorite={toggleFavorite}
+          />
         ) : <AuthRequiredMessage onSignIn={handleSignInClick} />;
       case 'messages':
         return user ? <Messages currentUserId={user.id} user={user} onBack={() => setActiveSection('home')} /> : <AuthRequiredMessage onSignIn={handleSignInClick} />;
       case 'rentals':
         return user ? <RentalRequests user={user} /> : <AuthRequiredMessage onSignIn={handleSignInClick} />;
       default:
-        return <HeroSection onGetStarted={handleGetStarted} onSignIn={handleSignInClick} />;
+        return <HeroSection onGetStarted={handleGetStarted} onSignIn={user ? null : handleSignInClick} />;
     }
   };
 
@@ -206,6 +213,13 @@ function App() {
           },
         }}
       />
+
+      {/* Favorite Success Message */}
+      {favoriteMessage && (
+        <div className="fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50 transition-all duration-300">
+          {favoriteMessage}
+        </div>
+      )}
     </div>
   );
 }

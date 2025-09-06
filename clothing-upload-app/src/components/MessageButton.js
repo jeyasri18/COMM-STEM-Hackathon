@@ -29,10 +29,10 @@ export function MessageButton({
       onClick={handleClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="flex items-center space-x-1 transition-all duration-200 hover:bg-primary hover:text-primary-foreground"
+      className="flex items-center space-x-1 transition-all duration-200 hover:bg-primary hover:text-primary-foreground text-green-600 border-green-600 hover:bg-green-50"
     >
       <MessageCircle className={`w-4 h-4 transition-transform ${isHovered ? 'scale-110' : ''}`} />
-      <span className="hidden sm:inline">Message</span>
+      <span>Chat</span>
     </Button>
   );
 }

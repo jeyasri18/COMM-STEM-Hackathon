@@ -2,27 +2,26 @@ import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { X, Calendar, Clock } from 'lucide-react';
+import { X, Calendar } from 'lucide-react';
 
 const API_BASE = 'http://localhost:8000';
 
-// Helper function to convert UUID to integer for backend
-function uuidToInt(uuid) {
-  if (!uuid) return 1;
-  let hash = 0;
-  for (let i = 0; i < uuid.length; i++) {
-    const char = uuid.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-    hash = hash & hash;
-  }
-  return Math.abs(hash) % 1000000 + 1;
-}
 
 export function RentalModal({ item, user, onClose, onRentalRequested }) {
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const calculateTotal = () => {
+    if (!startDate || !endDate) return 0;
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const days = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+    return days * (item?.price_per_day || 0);
+  };
+
+  const total = calculateTotal();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -87,7 +86,6 @@ export function RentalModal({ item, user, onClose, onRentalRequested }) {
 
   // Set default dates (today and tomorrow)
   const today = new Date().toISOString().split('T')[0];
-  const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -108,6 +106,12 @@ export function RentalModal({ item, user, onClose, onRentalRequested }) {
             <h3 className="font-medium text-lg">{item.title}</h3>
             <p className="text-gray-600">{item.description}</p>
             <p className="text-green-600 font-semibold">${item.price}/day</p>
+            {total > 0 && (
+              <p className="text-sm text-gray-600 mt-2">
+                Total for {Math.ceil((new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24))} days: 
+                <span className="font-semibold text-lg text-green-600"> ${total}</span>
+              </p>
+            )}
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -170,7 +174,7 @@ export function RentalModal({ item, user, onClose, onRentalRequested }) {
                 className="flex-1 bg-green-600 hover:bg-green-700"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending...' : 'Send Request'}
+                {isSubmitting ? 'Sending...' : `Send Request${total > 0 ? ` ($${total})` : ''}`}
               </Button>
             </div>
           </form>
