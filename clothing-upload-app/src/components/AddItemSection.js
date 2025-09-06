@@ -176,13 +176,24 @@ export function AddItemSection({ onItemAdded }) {
             
             <div className="space-y-2">
               <Label htmlFor="image">Item Image</Label>
-              <Input
-                id="image"
-                type="file"
-                accept="image/*"
-                onChange={handleImageChange}
-                className="file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-primary file:text-primary-foreground hover:file:bg-primary/80"
-              />
+              <div className="relative">
+                <Input
+                  id="image"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className="file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-primary file:text-black hover:file:bg-primary/80 text-black"
+                  style={{ color: 'black !important' }}
+                />
+                <style jsx>{`
+                  input[type="file"] {
+                    color: black !important;
+                  }
+                  input[type="file"]::file-selector-button {
+                    color: black !important;
+                  }
+                `}</style>
+              </div>
               {imagePreview && (
                 <div className="mt-2">
                   <img 

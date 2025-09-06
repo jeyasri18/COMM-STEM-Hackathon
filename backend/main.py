@@ -431,21 +431,23 @@ class RentalSystem:
     
     def create_rental_request(self, borrower_id: str, listing_id: str, start_date: str, end_date: str, message: str = ""):
         """Create a new rental request"""
-        # Get owner_id from the clothing item
+        # Convert listing_id to int for backend lookup
         try:
-            clothing_response = supabase.table('clothing').select('user_id').eq('id', listing_id).execute()
-            if not clothing_response.data:
-                raise ValueError("Clothing item not found")
-            
-            owner_id = clothing_response.data[0]['user_id']
-            print(f"Creating rental for clothing item {listing_id} owned by {owner_id}")
-            
-            # Check if user is trying to rent their own item
-            if borrower_id == owner_id:
-                raise ValueError("You cannot rent your own items")
-            
-        except Exception as e:
-            raise ValueError(f"Failed to get clothing item owner: {str(e)}")
+            listing_id_int = int(listing_id)
+        except ValueError:
+            raise ValueError("Invalid listing ID format")
+        
+        # Get owner_id from the backend listing data
+        if listing_id_int not in ratings_engine.listings:
+            raise ValueError("Clothing item not found")
+        
+        listing = ratings_engine.listings[listing_id_int]
+        owner_id = str(listing.owner_id)  # Convert to string for comparison
+        print(f"Creating rental for clothing item {listing_id} owned by {owner_id}")
+        
+        # Check if user is trying to rent their own item
+        if borrower_id == owner_id:
+            raise ValueError("You cannot rent your own items")
         
         # Convert IDs to UUID strings for Supabase
         borrower_id_str = str(borrower_id)  # Already a string
@@ -454,7 +456,7 @@ class RentalSystem:
         # Insert rental into Supabase
         response = supabase.table('rentals').insert({
             'borrower_id': borrower_id_str,
-            'listing_id': listing_id,  # Use the UUID string directly
+            'listing_id': str(listing_id_int),  # Use the integer ID as string
             'owner_id': owner_id_str,
             'start_date': start_date,
             'end_date': end_date,

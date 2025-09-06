@@ -11,7 +11,7 @@ import { PaymentModal } from './PaymentModal';
 import { useClothingRatings, useUserRatings } from '../hooks/useRatings';
 import { supabase, getCurrentUser } from '../lib/supabase';
 import { api } from '../lib/api';
-import { Heart } from 'lucide-react';
+import { Heart, MessageCircle } from 'lucide-react';
 
 export function PublicDashboard({ onMessageClick, favorites, onToggleFavorite }) {
   const [clothing, setClothing] = useState([]);
@@ -190,15 +190,16 @@ export function PublicDashboard({ onMessageClick, favorites, onToggleFavorite })
     
     return (
       <div className="mb-8">
+        {/* User Header Section */}
         <div className="flex items-center gap-4 mb-6">
-          <Avatar className="h-12 w-12">
+          <Avatar className="h-12 w-12 flex-shrink-0">
             <AvatarFallback className="bg-primary/10 text-primary font-semibold">
               {displayName.charAt(0).toUpperCase()}
             </AvatarFallback>
           </Avatar>
-          <div className="flex-1">
-            <h3 className="text-xl font-semibold text-foreground">{displayName}</h3>
-            <p className="text-muted-foreground text-sm">Community Member</p>
+          <div className="flex-1 min-w-0">
+            <h3 className="text-xl font-semibold text-foreground" style={{ marginLeft: '0px' }}>{displayName}</h3>
+            <p className="text-muted-foreground text-sm" style={{ marginLeft: '0px' }}>Listings</p>
             
             {/* User Rating Display */}
             <div className="mt-2 p-3 bg-gray-50 rounded-lg max-w-md">
@@ -247,23 +248,25 @@ export function PublicDashboard({ onMessageClick, favorites, onToggleFavorite })
           </div>
         </div>
         
+        {/* Items Grid - Aligned with user name */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {clothingItems.map(item => (
-            <ClothingItemCard 
-              key={item.id}
-              item={item}
-              displayName={displayName}
-              userId={userId}
-              isSelf={isSelf}
-              isConnected={isConnected}
-              isPending={isPending}
-              handleRent={handleRent}
-              onMessageClick={onMessageClick}
-              currentUserId={currentUserId}
-              onRateItem={onRateItem}
-              onPayment={onPayment}
-              onToggleFavorite={onToggleFavorite}
-            />
+          {clothingItems.map((item, index) => (
+            <div key={item.id} style={{ marginLeft: index === 0 ? '52px' : '0px' }}>
+              <ClothingItemCard 
+                item={item}
+                displayName={displayName}
+                userId={userId}
+                isSelf={isSelf}
+                isConnected={isConnected}
+                isPending={isPending}
+                handleRent={handleRent}
+                onMessageClick={onMessageClick}
+                currentUserId={currentUserId}
+                onRateItem={onRateItem}
+                onPayment={onPayment}
+                onToggleFavorite={onToggleFavorite}
+              />
+            </div>
           ))}
         </div>
       </div>
@@ -320,7 +323,7 @@ export function PublicDashboard({ onMessageClick, favorites, onToggleFavorite })
             <span className="text-lg font-semibold text-primary">
               ${item.price_per_day || 0}/day
             </span>
-            <Badge variant="secondary">Available</Badge>
+            <Badge variant="secondary" className="flex items-center">Available</Badge>
           </div>
           
           <div className="space-y-2">
@@ -330,18 +333,20 @@ export function PublicDashboard({ onMessageClick, favorites, onToggleFavorite })
                   <Button 
                     size="sm" 
                     onClick={() => handleRent(item)}
-                    className="flex-1 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70"
+                    className="flex-1 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 h-9"
                   >
                     Request Owner
                   </Button>
                 )}
-                <MessageButton
-                  itemId={item.id}
-                  ownerId={userId}
-                  ownerName={displayName}
-                  currentUserId={user?.id}
-                  onMessageClick={onMessageClick}
-                />
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => onMessageClick && onMessageClick(item.id, userId, displayName)}
+                  className="flex items-center space-x-1 transition-all duration-200 hover:bg-primary hover:text-primary-foreground text-green-600 border-green-600 hover:bg-green-50 h-9"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Chat</span>
+                </Button>
               </div>
               {!isSelf && (
                 <div className="space-y-2">
@@ -387,12 +392,58 @@ export function PublicDashboard({ onMessageClick, favorites, onToggleFavorite })
         <p className="text-muted-foreground text-lg">Discover and connect with sustainable fashion enthusiasts</p>
       </div>
       
-      {/* Backend Listings Section */}
+      {/* Original Supabase Listings */}
+      <div className="mb-8">
+        
+        {userIds.length === 0 && backendListings.length === 0 && (
+          <Card className="text-center py-12">
+            <CardContent>
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <img 
+                src="/logo.png" 
+                alt="Re:Fit Logo" 
+                className="w-8 h-8 object-contain"
+              />
+            </div>
+              <h3 className="text-xl font-semibold text-foreground mb-2">No items available yet</h3>
+              <p className="text-muted-foreground">Be the first to share an item with the community!</p>
+            </CardContent>
+          </Card>
+        )}
+        
+        {userIds.map(userId => {
+          const displayName = profiles[userId] || (clothingByUser[userId][0].uploader_name) || 'Unknown User';
+          const isSelf = user && user.id === userId;
+          const isConnected = user && connections.includes(userId);
+          const isPending = user && pendingRequests.includes(userId);
+          
+          return (
+            <UserProfileSection 
+              key={userId}
+              userId={userId}
+              displayName={displayName}
+              isSelf={isSelf}
+              isConnected={isConnected}
+              isPending={isPending}
+              clothingItems={clothingByUser[userId]}
+              onConnect={handleConnect}
+              onRateUser={handleRateUser}
+              onRateItem={handleRateItem}
+              handleRent={handleRent}
+              onMessageClick={onMessageClick}
+              currentUserId={user?.id}
+              onPayment={handlePayment}
+            />
+          );
+        })}
+      </div>
+      
+      {/* AI-Powered Recommendations Section */}
       {backendListings.length > 0 && (
         <div className="mb-12">
-        <h2 className="text-2xl font-semibold text-foreground mb-6">
-          AI-Powered Recommendations
-        </h2>
+          <h2 className="text-2xl font-semibold text-foreground mb-6">
+            AI-Powered Recommendations
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {backendListings.map((listing) => {
               const BackendListingCard = () => {
@@ -405,9 +456,9 @@ export function PublicDashboard({ onMessageClick, favorites, onToggleFavorite })
                         <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors">
                           {listing.title}
                         </h3>
-                        <Badge variant="secondary" className="bg-primary/10 text-primary">
+                        <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-xs font-semibold" style={{ color: '#000000 !important', WebkitTextFillColor: '#000000' }}>
                           {listing.privacy}
-                        </Badge>
+                        </span>
                       </div>
                     </CardHeader>
                     <CardContent className="space-y-4">
@@ -465,55 +516,6 @@ export function PublicDashboard({ onMessageClick, favorites, onToggleFavorite })
           </div>
         </div>
       )}
-      
-      {/* Original Supabase Listings */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-foreground mb-6">
-          Community Listings
-        </h2>
-        
-        {userIds.length === 0 && backendListings.length === 0 && (
-          <Card className="text-center py-12">
-            <CardContent>
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <img 
-                src="/logo.png" 
-                alt="Re:Fit Logo" 
-                className="w-8 h-8 object-contain"
-              />
-            </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">No items available yet</h3>
-              <p className="text-muted-foreground">Be the first to share an item with the community!</p>
-            </CardContent>
-          </Card>
-        )}
-        
-        {userIds.map(userId => {
-          const displayName = profiles[userId] || (clothingByUser[userId][0].uploader_name) || 'Unknown User';
-          const isSelf = user && user.id === userId;
-          const isConnected = user && connections.includes(userId);
-          const isPending = user && pendingRequests.includes(userId);
-          
-          return (
-            <UserProfileSection 
-              key={userId}
-              userId={userId}
-              displayName={displayName}
-              isSelf={isSelf}
-              isConnected={isConnected}
-              isPending={isPending}
-              clothingItems={clothingByUser[userId]}
-              onConnect={handleConnect}
-              onRateUser={handleRateUser}
-              onRateItem={handleRateItem}
-              handleRent={handleRent}
-              onMessageClick={onMessageClick}
-              currentUserId={user?.id}
-              onPayment={handlePayment}
-            />
-          );
-        })}
-      </div>
       
       {rentStatus && (
         <div className={`fixed bottom-4 right-4 p-4 rounded-lg shadow-lg ${

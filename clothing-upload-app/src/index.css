@@ -12,6 +12,19 @@
 }
 
 @layer base {
+  /* File input styling overrides */
+  input[type="file"] {
+    color: black !important;
+  }
+  
+  input[type="file"]::file-selector-button {
+    color: black !important;
+  }
+  
+  input[type="file"]::-webkit-file-upload-button {
+    color: black !important;
+  }
+  
   :root {
     --font-size: 16px;
     --background: #ebfeb4;
