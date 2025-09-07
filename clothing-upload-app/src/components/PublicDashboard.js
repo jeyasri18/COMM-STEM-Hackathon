@@ -42,8 +42,21 @@ export function PublicDashboard({ onMessageClick, favorites, onToggleFavorite })
         
         // Create or get backend user
         if (currentUser) {
+          // Convert UUID to a consistent integer for backend
+          const uuidToInt = (uuid) => {
+            let hash = 0;
+            for (let i = 0; i < uuid.length; i++) {
+              const char = uuid.charCodeAt(i);
+              hash = ((hash << 5) - hash) + char;
+              hash = hash & hash; // Convert to 32-bit integer
+            }
+            return Math.abs(hash) % 1000000; // Keep it reasonable
+          };
+          
+          const userIdInt = uuidToInt(currentUser.id);
+          
           try {
-            const userResponse = await api.getUser(currentUser.id);
+            const userResponse = await api.getUser(userIdInt);
             setBackendUser(userResponse.data);
           } catch (error) {
             // User doesn't exist in backend, create them
@@ -338,15 +351,17 @@ export function PublicDashboard({ onMessageClick, favorites, onToggleFavorite })
                     Request Owner
                   </Button>
                 )}
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => onMessageClick && onMessageClick(item.id, userId, displayName)}
-                  className="flex items-center space-x-1 transition-all duration-200 hover:bg-primary hover:text-primary-foreground text-green-600 border-green-600 hover:bg-green-50 h-9"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Chat</span>
-                </Button>
+                {!isSelf && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => onMessageClick && onMessageClick(item.id, userId, displayName)}
+                    className="flex items-center space-x-1 transition-all duration-200 hover:bg-primary hover:text-primary-foreground text-green-600 border-green-600 hover:bg-green-50 h-9"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Chat</span>
+                  </Button>
+                )}
               </div>
               {!isSelf && (
                 <div className="space-y-2">

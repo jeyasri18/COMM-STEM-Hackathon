@@ -180,6 +180,36 @@ class RatingsEngine:
 class SocialApp:
     def __init__(self):
         self.following = {}
+        self.users = {}
+        self.listings = {}
+        self.user_id_counter = 1
+        self.listing_id_counter = 1
+    
+    def add_user(self, name, circle):
+        """Add a user and return their ID"""
+        user_id = self.user_id_counter
+        user = type('User', (), {
+            'user_id': user_id,
+            'name': name,
+            'circle': circle
+        })()
+        self.users[user_id] = user
+        self.user_id_counter += 1
+        return user_id
+    
+    def add_listing(self, owner_id, title, description, privacy="public"):
+        """Add a listing and return its ID"""
+        listing_id = self.listing_id_counter
+        listing = type('Listing', (), {
+            'listing_id': listing_id,
+            'owner_id': owner_id,
+            'title': title,
+            'description': description,
+            'privacy': privacy
+        })()
+        self.listings[listing_id] = listing
+        self.listing_id_counter += 1
+        return listing_id
 
 # Create FastAPI app
 app = FastAPI(
@@ -254,6 +284,10 @@ def create_sample_data():
 
 # Initialize sample data
 create_sample_data()
+
+# Sync the counters between engines after sample data creation
+social_app.user_id_counter = ratings_engine.user_id_counter
+social_app.listing_id_counter = ratings_engine.listing_id_counter
 
 # Simple in-memory messaging system
 class MessagingSystem:

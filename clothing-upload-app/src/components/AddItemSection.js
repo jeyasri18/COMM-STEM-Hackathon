@@ -11,6 +11,7 @@ export function AddItemSection({ onItemAdded }) {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
+    price_per_day: '',
     privacy: 'public'
   });
   const [image, setImage] = useState(null);
@@ -35,9 +36,24 @@ export function AddItemSection({ onItemAdded }) {
       // Create the listing data - backend expects integer owner_id
       // We need to create or get a backend user first
       let backendUserId;
+      
+      // Convert UUID to a consistent integer for backend
+      const uuidToInt = (uuid) => {
+        // Simple hash function to convert UUID to integer
+        let hash = 0;
+        for (let i = 0; i < uuid.length; i++) {
+          const char = uuid.charCodeAt(i);
+          hash = ((hash << 5) - hash) + char;
+          hash = hash & hash; // Convert to 32-bit integer
+        }
+        return Math.abs(hash) % 1000000; // Keep it reasonable
+      };
+      
+      const userIdInt = uuidToInt(user.id);
+      
       try {
         // Try to get existing backend user
-        const userResponse = await api.getUser(user.id);
+        const userResponse = await api.getUser(userIdInt);
         backendUserId = userResponse.data.user_id;
       } catch (error) {
         // Create new backend user if doesn't exist
@@ -59,6 +75,9 @@ export function AddItemSection({ onItemAdded }) {
       const response = await api.addListing(listingData);
       
       if (response.data) {
+        // Also add to Supabase so it shows up in the main dashboard
+        let imageUrl = null;
+        
         // If image is provided, upload it to Supabase storage
         if (image) {
           try {
@@ -79,9 +98,8 @@ export function AddItemSection({ onItemAdded }) {
                 .from('clothing-images')
                 .getPublicUrl(fileName);
               
-              // Store the image URL in a separate table or update the listing
-              // For now, we'll just log it - you can extend this later
-              console.log('Image uploaded successfully:', publicUrlData.publicUrl);
+              imageUrl = publicUrlData.publicUrl;
+              console.log('Image uploaded successfully:', imageUrl);
             }
           } catch (imageError) {
             console.error('Image upload failed:', imageError);
@@ -89,10 +107,36 @@ export function AddItemSection({ onItemAdded }) {
           }
         }
         
+        // Add to Supabase clothing table so it appears in the main dashboard
+        try {
+          const { data: supabaseItem, error: supabaseError } = await supabase
+            .from('clothing')
+            .insert({
+              title: formData.title,
+              description: formData.description,
+              price_per_day: parseFloat(formData.price_per_day) || 0,
+              user_id: user.id,
+              uploader_name: user.user_metadata?.full_name || user.email,
+              visibility: formData.privacy === 'public' ? 'public' : 'private',
+              image_url: imageUrl
+            })
+            .select()
+            .single();
+          
+          if (supabaseError) {
+            console.error('Failed to add to Supabase:', supabaseError);
+          } else {
+            console.log('Successfully added to Supabase:', supabaseItem);
+          }
+        } catch (supabaseError) {
+          console.error('Supabase insertion failed:', supabaseError);
+        }
+        
         setSuccess('Item added successfully!');
         setFormData({
           title: '',
           description: '',
+          price_per_day: '',
           privacy: 'public'
         });
         setImage(null);
@@ -170,6 +214,20 @@ export function AddItemSection({ onItemAdded }) {
                 onChange={(e) => handleChange('description', e.target.value)}
                 placeholder="Describe the item, its condition, and any special features..."
                 rows={4}
+                required
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="price_per_day">Price per Day ($)</Label>
+              <Input
+                id="price_per_day"
+                type="number"
+                step="0.01"
+                min="0"
+                value={formData.price_per_day}
+                onChange={(e) => handleChange('price_per_day', e.target.value)}
+                placeholder="0.00"
                 required
               />
             </div>
